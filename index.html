@@ -12,7 +12,7 @@
             --edu-green: #198754;
         }
 
-        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f4f7f6; }
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; scroll-behavior: smooth; }
 
         /* HERO SECTION */
         .hero { 
@@ -24,50 +24,27 @@
             text-align: center;
         }
 
-        /* SEARCH & FILTER AREA */
         .filter-section {
             background: white;
             margin-top: -50px;
-            padding: 30px;
+            padding: 25px;
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
-        /* PRODUCT CARDS */
+        /* CARDS */
         .product-card { 
             border: none; 
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             padding: 20px; 
             border-radius: 16px; 
             margin-bottom: 25px; 
-            transition: all 0.3s ease;
-            background: #fff;
-            position: relative;
-            overflow: hidden;
-        }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 12px 25px rgba(0,0,0,0.1); }
-        .price-now { color: var(--edu-green); font-size: 1.6rem; font-weight: 800; }
-        .price-old { text-decoration: line-through; color: #adb5bd; font-size: 0.9rem; }
-        
-        .savings-badge {
-            background: #e6fffa;
-            color: #047857;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .guide-step {
-            padding: 25px;
-            border-radius: 15px;
-            background: #fff;
-            border: 1px solid #edf2f7;
             transition: 0.3s;
+            background: #fff;
         }
-        .guide-step:hover { border-color: var(--edu-blue); }
-
-        /* NAVBAR */
+        .product-card:hover { transform: translateY(-8px); }
+        .price-now { color: var(--edu-green); font-size: 1.5rem; font-weight: 800; }
+        
         .navbar { backdrop-filter: blur(10px); background: rgba(6, 17, 33, 0.95) !important; }
     </style>
 </head>
@@ -77,14 +54,14 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold fs-3" href="#">EDUCARE<span class="text-primary">.</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#buy">Marketplace</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#guide">How to Save</a></li>
-                    <li class="nav-item ms-lg-3"><a class="btn btn-primary rounded-pill px-4" href="https://forms.google.com" target="_blank">Start Selling</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#safetyModal">Safety Tips</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <!-- REAL ACTION: Link to your Google Form here -->
+                        <a class="btn btn-primary rounded-pill px-4" href="https://forms.google.com" target="_blank">Start Selling</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -98,151 +75,68 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="filter-section text-dark">
-                        <div class="row g-2">
-                            <div class="col-md-7">
-                                <input type="text" id="searchInput" class="form-control form-control-lg rounded-pill" placeholder="Search books, calculators, drafters...">
-                            </div>
-                            <div class="col-md-5">
-                                <div class="btn-group w-100" role="group">
-                                    <button type="button" class="btn btn-outline-primary active rounded-start-pill">All</button>
-                                    <button type="button" class="btn btn-outline-primary">School</button>
-                                    <button type="button" class="btn btn-outline-primary rounded-end-pill">Degree</button>
-                                </div>
-                            </div>
-                        </div>
+                        <input type="text" id="searchInput" class="form-control form-control-lg rounded-pill" placeholder="Search for books, calculators, or drafters...">
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Stats -->
-    <section class="py-4 bg-white border-bottom">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-4"><h5>₹45k+</h5><p class="text-muted small">Total Savings</p></div>
-                <div class="col-4"><h5>500+</h5><p class="text-muted small">Items Exchanged</p></div>
-                <div class="col-4"><h5>1k+</h5><p class="text-muted small">Happy Students</p></div>
-            </div>
-        </div>
-    </section>
-
     <!-- Marketplace -->
     <section id="buy" class="py-5">
         <div class="container">
-            <div class="d-flex justify-content-between align-items-center mb-5">
-                <h2 class="fw-bold m-0">Recommended for You</h2>
-                <span class="text-primary fw-bold">View All &rarr;</span>
-            </div>
-            
+            <h2 class="fw-bold mb-4">Live Listings</h2>
             <div class="row" id="productGrid">
+                
                 <!-- Product 1 -->
                 <div class="col-md-4 product-item">
                     <div class="product-card">
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="badge bg-primary-subtle text-primary px-3">DEGREE</span>
-                            <span class="savings-badge">Save 65%</span>
-                        </div>
+                        <span class="badge bg-primary-subtle text-primary mb-2">DEGREE</span>
                         <h4 class="fw-bold">Engineering Drawing Kit</h4>
-                        <p class="text-muted small">Full set with mini-drafter. Used only once.</p>
-                        <div class="my-3">
-                            <span class="price-now">₹1,200</span>
-                            <span class="price-old">₹3,500</span>
-                        </div>
-                        <a href="https://wa.me/910000000000" class="btn btn-dark w-100 rounded-pill">WhatsApp Seller</a>
+                        <p class="text-muted small">Full set with mini-drafter. Good condition.</p>
+                        <p class="price-now">₹1,200</p>
+                        <!-- REAL ACTION: Open WhatsApp with pre-filled text -->
+                        <a href="https://wa.me/911234567890?text=Hi! I want to buy the Engineering Kit from Educare." target="_blank" class="btn btn-dark w-100 rounded-pill">WhatsApp Seller</a>
                     </div>
                 </div>
 
                 <!-- Product 2 -->
                 <div class="col-md-4 product-item">
                     <div class="product-card">
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="badge bg-success-subtle text-success px-3">SECONDARY</span>
-                            <span class="savings-badge">Save 60%</span>
-                        </div>
+                        <span class="badge bg-success-subtle text-success mb-2">SECONDARY</span>
                         <h4 class="fw-bold">Class 10 NCERT Books</h4>
-                        <p class="text-muted small">Complete set for Board exams. No markings.</p>
-                        <div class="my-3">
-                            <span class="price-now">₹450</span>
-                            <span class="price-old">₹1,150</span>
-                        </div>
-                        <a href="https://wa.me/910000000000" class="btn btn-dark w-100 rounded-pill">WhatsApp Seller</a>
+                        <p class="text-muted small">Full set. No torn pages.</p>
+                        <p class="price-now">₹450</p>
+                        <a href="https://wa.me/911234567890?text=Hi! I want to buy the NCERT set from Educare." target="_blank" class="btn btn-dark w-100 rounded-pill">WhatsApp Seller</a>
                     </div>
                 </div>
 
-                <!-- Product 3 -->
-                <div class="col-md-4 product-item">
-                    <div class="product-card">
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="badge bg-warning-subtle text-warning px-3">HSC</span>
-                            <span class="savings-badge">Save 50%</span>
-                        </div>
-                        <h4 class="fw-bold">Scientific Calculator</h4>
-                        <p class="text-muted small">Casio fx-991ES Plus. Perfect working condition.</p>
-                        <div class="my-3">
-                            <span class="price-now">₹750</span>
-                            <span class="price-old">₹1,500</span>
-                        </div>
-                        <a href="https://wa.me/910000000000" class="btn btn-dark w-100 rounded-pill">WhatsApp Seller</a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Guide -->
-    <section id="guide" class="py-5 bg-white">
-        <div class="container py-4">
-            <h2 class="text-center fw-bold mb-5">The Educare Guide</h2>
-            <div class="row g-4 text-center">
-                <div class="col-md-3">
-                    <div class="guide-step">
-                        <div class="fs-1 mb-3">🔎</div>
-                        <h5 class="fw-bold">Search Level</h5>
-                        <p class="text-muted small">Browse by Secondary, HSC, or Degree to find exactly what you need.</p>
-                    </div>
+    <!-- Safety Modal -->
+    <div class="modal fade" id="safetyModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Safety Guide 🛡️</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="col-md-3">
-                    <div class="guide-step">
-                        <div class="fs-1 mb-3">💬</div>
-                        <h5 class="fw-bold">Chat Direct</h5>
-                        <p class="text-muted small">Connect via WhatsApp to see live photos and negotiate price.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="guide-step">
-                        <div class="fs-1 mb-3">🤝</div>
-                        <h5 class="fw-bold">Local Trade</h5>
-                        <p class="text-muted small">Meet on campus or at the library for a safe, cash-free exchange.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="guide-step">
-                        <div class="fs-1 mb-3">🔁</div>
-                        <h5 class="fw-bold">List Back</h5>
-                        <p class="text-muted small">Finished the book? Resell it here to keep the cycle going!</p>
-                    </div>
+                <div class="modal-body">
+                    <ul>
+                        <li><strong>Meet in Public:</strong> Only trade at the Campus Library or Canteen.</li>
+                        <li><strong>Check First:</strong> Inspect the book/tool before paying.</li>
+                        <li><strong>Direct Pay:</strong> Pay the student directly via cash or UPI.</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
-    <footer class="py-5 text-white" style="background: var(--edu-dark);">
-        <div class="container text-center">
-            <h2 class="fw-bold">EDUCARE</h2>
-            <p class="opacity-50">Empowering Indian Students through Affordable Resources.</p>
-            <div class="mt-4">
-                <a href="#" class="text-white-50 mx-2">Privacy</a>
-                <a href="#" class="text-white-50 mx-2">Terms</a>
-                <a href="mailto:support@educare.com" class="text-white-50 mx-2">Contact</a>
-            </div>
-            <p class="mt-5 small opacity-25">&copy; 2026 Educare Marketplace. Developed for Change.</p>
-        </div>
-    </footer>
-
-    <!-- Search Logic Script -->
+    <!-- Scripts -->
     <script>
+        // Real-time Search Functionality
         document.getElementById('searchInput').addEventListener('keyup', function() {
             let filter = this.value.toLowerCase();
             let items = document.querySelectorAll('.product-item');
@@ -255,5 +149,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
