@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Educare | India's #1 Student Marketplace</title>
+    <title>Educare | Student Marketplace & Community</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root {
@@ -46,6 +46,8 @@
         .price-now { color: var(--edu-green); font-size: 1.5rem; font-weight: 800; }
         
         .navbar { backdrop-filter: blur(10px); background: rgba(6, 17, 33, 0.95) !important; }
+        
+        .modal-content { border-radius: 20px; border: none; }
     </style>
 </head>
 <body>
@@ -59,8 +61,7 @@
                     <li class="nav-item"><a class="nav-link" href="#buy">Marketplace</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#safetyModal">Safety Tips</a></li>
                     <li class="nav-item ms-lg-3">
-                        <!-- REAL ACTION: Link to your Google Form here -->
-                        <a class="btn btn-primary rounded-pill px-4" href="https://forms.google.com" target="_blank">Start Selling</a>
+                        <button class="btn btn-primary rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#accountModal">Create Account</button>
                     </li>
                 </ul>
             </div>
@@ -71,7 +72,7 @@
     <header class="hero">
         <div class="container">
             <h1 class="display-3 fw-bold mb-3">Education shouldn't cost a fortune.</h1>
-            <p class="lead fs-4 mb-5 opacity-75">India's trusted community for students to buy and resell academic gear.</p>
+            <p class="lead fs-4 mb-5 opacity-75">Join our community of students. Fill your details to connect and trade.</p>
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="filter-section text-dark">
@@ -84,8 +85,8 @@
 
     <!-- Marketplace -->
     <section id="buy" class="py-5">
-        <div class="container">
-            <h2 class="fw-bold mb-4">Live Listings</h2>
+        <div class="container text-center">
+            <h2 class="fw-bold mb-4">Live Student Listings</h2>
             <div class="row" id="productGrid">
                 
                 <!-- Product 1 -->
@@ -95,8 +96,7 @@
                         <h4 class="fw-bold">Engineering Drawing Kit</h4>
                         <p class="text-muted small">Full set with mini-drafter. Good condition.</p>
                         <p class="price-now">₹1,200</p>
-                        <!-- REAL ACTION: Open WhatsApp with pre-filled text -->
-                        <a href="https://wa.me/911234567890?text=Hi! I want to buy the Engineering Kit from Educare." target="_blank" class="btn btn-dark w-100 rounded-pill">WhatsApp Seller</a>
+                        <a href="https://wa.me/911234567890?text=Hi! I want to buy the Engineering Kit from Educare." target="_blank" class="btn btn-dark w-100 rounded-pill">Connect with Seller</a>
                     </div>
                 </div>
 
@@ -107,7 +107,7 @@
                         <h4 class="fw-bold">Class 10 NCERT Books</h4>
                         <p class="text-muted small">Full set. No torn pages.</p>
                         <p class="price-now">₹450</p>
-                        <a href="https://wa.me/911234567890?text=Hi! I want to buy the NCERT set from Educare." target="_blank" class="btn btn-dark w-100 rounded-pill">WhatsApp Seller</a>
+                        <a href="https://wa.me/911234567890?text=Hi! I want to buy the NCERT set from Educare." target="_blank" class="btn btn-dark w-100 rounded-pill">Connect with Seller</a>
                     </div>
                 </div>
 
@@ -115,28 +115,69 @@
         </div>
     </section>
 
-    <!-- Safety Modal -->
+    <!-- ACCOUNT CREATION MODAL -->
+    <div class="modal fade" id="accountModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-header border-0">
+                    <h3 class="fw-bold">Create Your Account</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registrationForm">
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Phone Number</label>
+                            <input type="tel" class="form-control rounded-pill" placeholder="+91 XXXXX XXXXX" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Age</label>
+                            <input type="number" class="form-control rounded-pill" placeholder="e.g. 19" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Area / Campus</label>
+                            <input type="text" class="form-control rounded-pill" placeholder="e.g. Mumbai University" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 rounded-pill py-2 mt-3 fw-bold">Join Educare</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SAFETY MODAL -->
     <div class="modal fade" id="safetyModal" tabindex="-1">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
+            <div class="modal-content p-3">
+                <div class="modal-header border-0">
                     <h5 class="modal-title fw-bold">Safety Guide 🛡️</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <ul>
-                        <li><strong>Meet in Public:</strong> Only trade at the Campus Library or Canteen.</li>
-                        <li><strong>Check First:</strong> Inspect the book/tool before paying.</li>
-                        <li><strong>Direct Pay:</strong> Pay the student directly via cash or UPI.</li>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">📍 <strong>Meet in Public:</strong> Use the Library or Canteen for trades.</li>
+                        <li class="mb-2">📖 <strong>Inspect First:</strong> Check book condition before paying.</li>
+                        <li>💰 <strong>Pay Directly:</strong> Use UPI or Cash once satisfied.</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- FOOTER -->
+    <footer class="py-4 text-center text-white" style="background: var(--edu-dark);">
+        <p class="small opacity-50">&copy; 2026 Educare Marketplace. Connecting Students Safely.</p>
+    </footer>
+
     <!-- Scripts -->
     <script>
-        // Real-time Search Functionality
+        // Handle Form Submission with a Fake Success Message
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert("Account Created! You are now connected to the Educare community.");
+            bootstrap.Modal.getInstance(document.getElementById('accountModal')).hide();
+        });
+
+        // Search Logic
         document.getElementById('searchInput').addEventListener('keyup', function() {
             let filter = this.value.toLowerCase();
             let items = document.querySelectorAll('.product-item');
