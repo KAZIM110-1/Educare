@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educare | Student Marketplace</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero { background: #f8f9fa; padding: 60px 0; border-bottom: 1px solid #ddd; }
+        .product-card { border: 1px solid #eee; padding: 15px; border-radius: 10px; margin-bottom: 20px; transition: 0.3s; }
+        .product-card:hover { shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">EDUCARE</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="#buy">Buy</a>
+                <a class="nav-link" href="#sell">Sell</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero text-center">
+        <div class="container">
+            <h1 class="display-4">Education shouldn't be expensive.</h1>
+            <p class="lead">Buy the tools you need for your degree, resell them when you're done.</p>
+            <a href="#buy" class="btn btn-primary btn-lg">Browse Products</a>
+        </div>
+    </header>
+
+    <!-- Categories / Suggestions -->
+    <section id="buy" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Suggested for You</h2>
+            <div class="row">
+                <!-- Example Product 1 -->
+                <div class="col-md-4">
+                    <div class="product-card text-center">
+                        <h5>Engineering Graphics Set</h5>
+                        <p class="text-muted">Degree Level</p>
+                        <p><strong>$15</strong> <small>(Retail: $45)</small></p>
+                        <button class="btn btn-outline-primary btn-sm">Connect with Seller</button>
+                    </div>
+                </div>
+                <!-- Example Product 2 -->
+                <div class="col-md-4">
+                    <div class="product-card text-center">
+                        <h5>Biology Lab Coat</h5>
+                        <p class="text-muted">Secondary Level</p>
+                        <p><strong>$8</strong></p>
+                        <button class="btn btn-outline-primary btn-sm">Connect with Seller</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
