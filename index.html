@@ -3,176 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Educare | Student Marketplace</title>
-    <!-- Modern Styling with Bootstrap -->
+    <title>Educare | India's #1 Student Marketplace</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root {
             --edu-blue: #0d6efd;
-            --edu-dark: #0a2351;
+            --edu-dark: #061121;
             --edu-green: #198754;
         }
 
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f4f7f6; }
 
-        /* HERO SECTION - Updated to use your exact uploaded filename */
+        /* HERO SECTION */
         .hero { 
-            background: linear-gradient(rgba(10, 35, 81, 0.85), rgba(10, 35, 81, 0.85)), 
+            background: linear-gradient(rgba(6, 17, 33, 0.8), rgba(6, 17, 33, 0.8)), 
                         url('Gemini_Generated_Image_390v2i390v2i390v.png') no-repeat center center; 
             background-size: cover;
-            padding: 140px 0 100px; 
+            padding: 160px 0 100px; 
             color: white;
             text-align: center;
         }
 
-        .hero h1 { font-weight: 800; font-size: 3.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        /* SEARCH & FILTER AREA */
+        .filter-section {
+            background: white;
+            margin-top: -50px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
 
         /* PRODUCT CARDS */
         .product-card { 
             border: none; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            padding: 25px; 
-            border-radius: 15px; 
-            margin-bottom: 30px; 
-            transition: transform 0.3s ease;
-            background: #ffffff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 20px; 
+            border-radius: 16px; 
+            margin-bottom: 25px; 
+            transition: all 0.3s ease;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
         }
-        .product-card:hover { transform: translateY(-10px); }
-        .price-now { color: var(--edu-green); font-size: 1.5rem; font-weight: bold; }
-        .price-old { text-decoration: line-through; color: #6c757d; font-size: 0.9rem; margin-left: 8px; }
-
-        /* GUIDE ICONS */
-        .guide-step {
-            padding: 30px;
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 12px 25px rgba(0,0,0,0.1); }
+        .price-now { color: var(--edu-green); font-size: 1.6rem; font-weight: 800; }
+        .price-old { text-decoration: line-through; color: #adb5bd; font-size: 0.9rem; }
+        
+        .savings-badge {
+            background: #e6fffa;
+            color: #047857;
+            padding: 4px 12px;
             border-radius: 20px;
-            background: #f8f9fa;
-            height: 100%;
-            border-bottom: 4px solid var(--edu-blue);
+            font-size: 0.8rem;
+            font-weight: bold;
         }
-        .step-icon { font-size: 2.5rem; color: var(--edu-blue); margin-bottom: 15px; }
+
+        .guide-step {
+            padding: 25px;
+            border-radius: 15px;
+            background: #fff;
+            border: 1px solid #edf2f7;
+            transition: 0.3s;
+        }
+        .guide-step:hover { border-color: var(--edu-blue); }
+
+        /* NAVBAR */
+        .navbar { backdrop-filter: blur(10px); background: rgba(6, 17, 33, 0.95) !important; }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: var(--edu-dark);">
+    <!-- Nav -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">EDUCARE</a>
+            <a class="navbar-brand fw-bold fs-3" href="#">EDUCARE<span class="text-primary">.</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#buy">Browse Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#guide">How It Works</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-success text-white ms-lg-3 px-4" href="#sell">List Your Item</a></li>
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#buy">Marketplace</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#guide">How to Save</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-primary rounded-pill px-4" href="https://forms.google.com" target="_blank">Start Selling</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Main Cover Page -->
+    <!-- Hero -->
     <header class="hero">
         <div class="container">
-            <h1 class="display-3">Education Shouldn't Be Expensive.</h1>
-            <p class="lead mb-4 fs-4">Join the circular economy. Buy quality used materials from other students, then resell them later to save Rupee (₹).</p>
-            <div class="d-flex justify-content-center gap-3 mt-5">
-                <a href="#buy" class="btn btn-success btn-lg px-5 py-3 fs-5 fw-bold">Shop Now (₹)</a>
-                <a href="#guide" class="btn btn-outline-light btn-lg px-5 py-3 fs-5">Learn More</a>
+            <h1 class="display-3 fw-bold mb-3">Education shouldn't cost a fortune.</h1>
+            <p class="lead fs-4 mb-5 opacity-75">India's trusted community for students to buy and resell academic gear.</p>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="filter-section text-dark">
+                        <div class="row g-2">
+                            <div class="col-md-7">
+                                <input type="text" id="searchInput" class="form-control form-control-lg rounded-pill" placeholder="Search books, calculators, drafters...">
+                            </div>
+                            <div class="col-md-5">
+                                <div class="btn-group w-100" role="group">
+                                    <button type="button" class="btn btn-outline-primary active rounded-start-pill">All</button>
+                                    <button type="button" class="btn btn-outline-primary">School</button>
+                                    <button type="button" class="btn btn-outline-primary rounded-end-pill">Degree</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- User Guide Section -->
-    <section id="guide" class="py-5 bg-white">
-        <div class="container text-center py-4">
-            <h2 class="fw-bold mb-5 section-title">Your Reselling Guide</h2>
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="guide-step">
-                        <div class="step-icon">🔍</div>
-                        <h5>1. Find Gear</h5>
-                        <p class="small text-muted">Browse items by Secondary, HSC, or Degree level.</p>
+    <!-- Stats -->
+    <section class="py-4 bg-white border-bottom">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-4"><h5>₹45k+</h5><p class="text-muted small">Total Savings</p></div>
+                <div class="col-4"><h5>500+</h5><p class="text-muted small">Items Exchanged</p></div>
+                <div class="col-4"><h5>1k+</h5><p class="text-muted small">Happy Students</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketplace -->
+    <section id="buy" class="py-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-5">
+                <h2 class="fw-bold m-0">Recommended for You</h2>
+                <span class="text-primary fw-bold">View All &rarr;</span>
+            </div>
+            
+            <div class="row" id="productGrid">
+                <!-- Product 1 -->
+                <div class="col-md-4 product-item">
+                    <div class="product-card">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge bg-primary-subtle text-primary px-3">DEGREE</span>
+                            <span class="savings-badge">Save 65%</span>
+                        </div>
+                        <h4 class="fw-bold">Engineering Drawing Kit</h4>
+                        <p class="text-muted small">Full set with mini-drafter. Used only once.</p>
+                        <div class="my-3">
+                            <span class="price-now">₹1,200</span>
+                            <span class="price-old">₹3,500</span>
+                        </div>
+                        <a href="https://wa.me/910000000000" class="btn btn-dark w-100 rounded-pill">WhatsApp Seller</a>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="guide-step">
-                        <div class="step-icon">🤝</div>
-                        <h5>2. Connect</h5>
-                        <p class="small text-muted">Directly message sellers to check quality or negotiate price.</p>
+
+                <!-- Product 2 -->
+                <div class="col-md-4 product-item">
+                    <div class="product-card">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge bg-success-subtle text-success px-3">SECONDARY</span>
+                            <span class="savings-badge">Save 60%</span>
+                        </div>
+                        <h4 class="fw-bold">Class 10 NCERT Books</h4>
+                        <p class="text-muted small">Complete set for Board exams. No markings.</p>
+                        <div class="my-3">
+                            <span class="price-now">₹450</span>
+                            <span class="price-old">₹1,150</span>
+                        </div>
+                        <a href="https://wa.me/910000000000" class="btn btn-dark w-100 rounded-pill">WhatsApp Seller</a>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="guide-step">
-                        <div class="step-icon">📍</div>
-                        <h5>3. Exchange</h5>
-                        <p class="small text-muted">Meet safely on your campus or local area to trade.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="guide-step">
-                        <div class="step-icon">♻️</div>
-                        <h5>4. List Later</h5>
-                        <p class="small text-muted">Done with the course? Post your item back here to help others!</p>
+
+                <!-- Product 3 -->
+                <div class="col-md-4 product-item">
+                    <div class="product-card">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge bg-warning-subtle text-warning px-3">HSC</span>
+                            <span class="savings-badge">Save 50%</span>
+                        </div>
+                        <h4 class="fw-bold">Scientific Calculator</h4>
+                        <p class="text-muted small">Casio fx-991ES Plus. Perfect working condition.</p>
+                        <div class="my-3">
+                            <span class="price-now">₹750</span>
+                            <span class="price-old">₹1,500</span>
+                        </div>
+                        <a href="https://wa.me/910000000000" class="btn btn-dark w-100 rounded-pill">WhatsApp Seller</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Marketplace Section -->
-    <section id="buy" class="py-5 bg-light">
+    <!-- Guide -->
+    <section id="guide" class="py-5 bg-white">
         <div class="container py-4">
-            <h2 class="fw-bold text-center mb-5">Suggested Listings</h2>
-            <div class="row">
-                
-                <!-- Item 1 -->
-                <div class="col-md-4">
-                    <div class="product-card text-center">
-                        <span class="badge bg-primary mb-2">DEGREE</span>
-                        <h3>Engineering Drawing Kit</h3>
-                        <p class="text-muted small">Drafter + Tools (Used 1 Semester)</p>
-                        <p class="price-now">₹1,200 <span class="price-old">₹3,500</span></p>
-                        <button class="btn btn-primary w-100 py-2">Connect to Buy</button>
+            <h2 class="text-center fw-bold mb-5">The Educare Guide</h2>
+            <div class="row g-4 text-center">
+                <div class="col-md-3">
+                    <div class="guide-step">
+                        <div class="fs-1 mb-3">🔎</div>
+                        <h5 class="fw-bold">Search Level</h5>
+                        <p class="text-muted small">Browse by Secondary, HSC, or Degree to find exactly what you need.</p>
                     </div>
                 </div>
-
-                <!-- Item 2 -->
-                <div class="col-md-4">
-                    <div class="product-card text-center">
-                        <span class="badge bg-success mb-2">SECONDARY</span>
-                        <h3>Class 10 NCERT Books</h3>
-                        <p class="text-muted small">Full Set - Excellent Condition</p>
-                        <p class="price-now">₹450 <span class="price-old">₹1,100</span></p>
-                        <button class="btn btn-primary w-100 py-2">Connect to Buy</button>
+                <div class="col-md-3">
+                    <div class="guide-step">
+                        <div class="fs-1 mb-3">💬</div>
+                        <h5 class="fw-bold">Chat Direct</h5>
+                        <p class="text-muted small">Connect via WhatsApp to see live photos and negotiate price.</p>
                     </div>
                 </div>
-
-                <!-- Item 3 -->
-                <div class="col-md-4">
-                    <div class="product-card text-center">
-                        <span class="badge bg-warning text-dark mb-2">HSC</span>
-                        <h3>Scientific Calculator</h3>
-                        <p class="text-muted small">Casio fx-991ES Plus (1 Year Old)</p>
-                        <p class="price-now">₹650 <span class="price-old">₹1,400</span></p>
-                        <button class="btn btn-primary w-100 py-2">Connect to Buy</button>
+                <div class="col-md-3">
+                    <div class="guide-step">
+                        <div class="fs-1 mb-3">🤝</div>
+                        <h5 class="fw-bold">Local Trade</h5>
+                        <p class="text-muted small">Meet on campus or at the library for a safe, cash-free exchange.</p>
                     </div>
                 </div>
-
+                <div class="col-md-3">
+                    <div class="guide-step">
+                        <div class="fs-1 mb-3">🔁</div>
+                        <h5 class="fw-bold">List Back</h5>
+                        <p class="text-muted small">Finished the book? Resell it here to keep the cycle going!</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-5 text-center text-white" style="background: var(--edu-dark);">
-        <div class="container">
-            <h3 class="fw-bold mb-3">EDUCARE</h3>
-            <p>Reducing the cost of education in India, one student at a time.</p>
-            <p class="small text-muted mt-4">&copy; 2026 Educare Marketplace. Hosted on GitHub Pages.</p>
+    <footer class="py-5 text-white" style="background: var(--edu-dark);">
+        <div class="container text-center">
+            <h2 class="fw-bold">EDUCARE</h2>
+            <p class="opacity-50">Empowering Indian Students through Affordable Resources.</p>
+            <div class="mt-4">
+                <a href="#" class="text-white-50 mx-2">Privacy</a>
+                <a href="#" class="text-white-50 mx-2">Terms</a>
+                <a href="mailto:support@educare.com" class="text-white-50 mx-2">Contact</a>
+            </div>
+            <p class="mt-5 small opacity-25">&copy; 2026 Educare Marketplace. Developed for Change.</p>
         </div>
     </footer>
 
-    <!-- Bootstrap Script Bundle -->
+    <!-- Search Logic Script -->
+    <script>
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            let filter = this.value.toLowerCase();
+            let items = document.querySelectorAll('.product-item');
+            items.forEach(item => {
+                let text = item.innerText.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+
